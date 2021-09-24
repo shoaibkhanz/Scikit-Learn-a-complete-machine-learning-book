@@ -1,0 +1,4 @@
+# in _config.yml
+title: "Scikit-Learn: a complete machine learning book"
+execute:
+  execute_notebooks: "auto"
