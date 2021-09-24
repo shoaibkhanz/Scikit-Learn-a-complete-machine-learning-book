@@ -1,2 +1,2 @@
-# scikit-learn-a-comprehensive-book
-This is a book for a comprehensive course on scikit-learn, accompanied with videos on YouTube.
+# Scikit-Learn: a complete machine learning book
+This is a book for a comprehensive/complete course on scikit-learn, accompanied with videos on YouTube.
