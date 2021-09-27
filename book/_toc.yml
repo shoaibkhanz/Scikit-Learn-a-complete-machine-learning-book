@@ -1,7 +1,14 @@
 format: jb-book
 root: overview
 options:
-  numbered: True
+  numbered: False
 chapters:
-- file: Linear_Regression
+- file: notebooks/chapter0/part1
+  sections:
+    - file: notebooks/chapter0/part2
+    - file: notebooks/chapter0/part3 
+    - file: notebooks/chapter0/part4 
+- file: notebooks/chapter1/correlation
+- file: notebooks/chapter1/linear_regression
+
 
