@@ -1,5 +1,3 @@
 # Machine learning with scikit-learn
 
-**In Development**
-
  The aim is to help the reader get started quickly with machine learning. In conjunction with theory build intuition by doing. However, theory alone isn't enough and we must put it to practice. The book will explore, discuss various approaches to solving real life problems using various machine learning techniques. We will cover topics such as **Regression**, **classification**, **clustering**, **feature selection**, **data pre-processing**, **machine-learning pipelines** and much more. The choice we make here is **Scikit-Learn** which is an extremely popular machine learning library.
