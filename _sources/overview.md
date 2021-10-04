@@ -1,0 +1,3 @@
+# Machine learning with scikit-learn
+
+This book is accompanied along with a Youtube course, which aims to help you get started quickly with machine learning. While we must get a grasp of theory, but it alone isn't enough and we must put it to practice. The choice we make here is **Scikit-Learn** which is an extremely popular machine learning library. We will explore, discuss, practice and understand various approaches to solving real life problems. We will cover topics such as **Regression**, **classification**, **clustering**, **feature selection**, **data pre-processing**, **machine-learning pipelines** and much more.
