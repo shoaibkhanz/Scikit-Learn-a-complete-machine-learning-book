@@ -223,8 +223,7 @@
                 
   <div class="section" id="correlation">
 <h1>Correlation<a class="headerlink" href="#correlation" title="Permalink to this headline">¶</a></h1>
-<p>Relate to the way people use the term <strong>correlation</strong>, often they mention events or things that are expected to happen together. We may use the term loosely and may interprate that one is causing the other. for e.g. “It rains whenever I wear white”, we know that this cant be true but statements such as these sometimes could be interpreted incorrectly as one causing the other. When we study correlation, we are always told <strong>correlation is not causation</strong>. Finally, the goal here is to understand the metrics available to measure correlation given some data and avoid any causal inference.</p>
-<p>The most common form of <strong>correlation coefficient</strong> that you will find is called <strong>pearson correlation coefficient</strong>. Normally, when we say correlation it is assumed that its pearson correlation but it’s best to clarify.</p>
+<p>Next time when you meet someone and they say “It rains whenever I wear white”, don’t believe them, they are confusing correlation with causation. The most common form of <strong>correlation coefficient</strong> that you will find is called <strong>pearson correlation coefficient</strong>. Normally, when we say correlation it is assumed that its pearson correlation but it’s best to clarify.</p>
 <p>We will discuss 3 types correlation coefficients but you may find a few more in the literature.</p>
 <ol class="simple">
 <li><p>Pearson correlation coefficient</p></li>
@@ -252,8 +251,8 @@ which means it isn’t associate with any measurement and so can be used for com
 </ul>
 <div class="section" id="coefficient-strength">
 <h3>Coefficient Strength<a class="headerlink" href="#coefficient-strength" title="Permalink to this headline">¶</a></h3>
-<p>We understand from above that the correlation value stays between <span class="math notranslate nohighlight">\([-1,1]\)</span> and that they represent negative or positive linear trend with a value of <span class="math notranslate nohighlight">\(0\)</span> suggesting no linear trend. In practice, we would see values such as <span class="math notranslate nohighlight">\(-0.36\)</span> or <span class="math notranslate nohighlight">\(0.36\)</span>, <span class="math notranslate nohighlight">\(-0.50\)</span>, <span class="math notranslate nohighlight">\(0.50\)</span> or <span class="math notranslate nohighlight">\(-0.8\)</span> or <span class="math notranslate nohighlight">\(0.8\)</span> and deciding if the value is high or low really depends on the problem.
-However, generally a value below <span class="math notranslate nohighlight">\(-0.5\)</span> <span class="math notranslate nohighlight">\([-0.5&lt;=v&lt;=-1]\)</span> or above <span class="math notranslate nohighlight">\(0.5\)</span> <span class="math notranslate nohighlight">\([0.5&gt;=v&gt;=1]\)</span> is considered a value with strong linear relationship and the values other than this is considered as having a weak relationship.</p>
+<p>We understand from above that the correlation value stays between <span class="math notranslate nohighlight">\([-1,1]\)</span> and that they represent negative or positive linear trend with a value of <span class="math notranslate nohighlight">\(0\)</span> suggesting no linear trend.</p>
+<p>In practice, we would see values such as <span class="math notranslate nohighlight">\(-0.36\)</span> or <span class="math notranslate nohighlight">\(0.36\)</span>, <span class="math notranslate nohighlight">\(-0.50\)</span>, <span class="math notranslate nohighlight">\(0.50\)</span> or <span class="math notranslate nohighlight">\(-0.8\)</span> or <span class="math notranslate nohighlight">\(0.8\)</span> and deciding if the value is high or low really depends on the problem. However, generally a value below <span class="math notranslate nohighlight">\(-0.5\)</span> <span class="math notranslate nohighlight">\([-0.5&lt;=v&lt;=-1]\)</span> or above <span class="math notranslate nohighlight">\(0.5\)</span> <span class="math notranslate nohighlight">\([0.5&gt;=v&gt;=1]\)</span> is considered a value with strong linear relationship negative or positive respectively. The values otherwise are considered as describing a weak linear relationship.</p>
 <p>Let’s demonstrate this with some code. We will import some libraries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -299,8 +298,8 @@ However, generally a value below <span class="math notranslate nohighlight">\(-0
 <span class="n">p2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
 <span class="n">pos_corr_outlier</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span> <span class="n">p2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)]</span>
 
-<span class="n">p3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">pos_corr_outlier</span><span class="p">[</span><span class="o">-</span><span class="mi">50</span><span class="p">:]</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">p3</span><span class="p">,</span> <span class="n">p3</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">)]</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">pos_corr_outlier</span><span class="p">[</span><span class="o">-</span><span class="mi">50</span><span class="p">:]</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">p3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">50</span><span class="p">))]</span>
 
 
 <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">perfect_pos_corr</span><span class="p">)</span>
@@ -313,9 +312,9 @@ However, generally a value below <span class="math notranslate nohighlight">\(-0
 <div class="cell_output docutils container">
 <script type="application/javascript">
             setTimeout(function() {
-                var nbb_cell_id = 2;
-                var nbb_unformatted_code = "# Create different scenarios of correlation\n\nperfect_pos_corr = [(x, x + 2) for x in range(1, 11)]\n\nperfect_neg_corr = [\n    (x, y) for x, y in zip(range(1, 11), sorted(range(1, 11), reverse=True))\n]\nnp.random.seed(0)\nno_corr = [(np.random.randn(500), np.random.randn(500))]\n\np2 = np.random.randn(500)\npos_corr_outlier = [\n    (x, y) for x, y in zip(p2 , p2 + np.random.randn(500) * 0.5)\n]\n\np3 = np.random.rand(50)\npos_corr_outlier[-50:] = [\n    (x, y) for x, y in zip(p3 , p3 - 5*np.random.rand(50)  * 1.5)\n]\n\n\nx1, y1 = zip(*perfect_pos_corr)\nx2, y2 = zip(*perfect_neg_corr)\nx3, y3 = zip(*no_corr)\nx4, y4 = zip(*pos_corr_outlier)";
-                var nbb_formatted_code = "# Create different scenarios of correlation\n\nperfect_pos_corr = [(x, x + 2) for x in range(1, 11)]\n\nperfect_neg_corr = [\n    (x, y) for x, y in zip(range(1, 11), sorted(range(1, 11), reverse=True))\n]\nnp.random.seed(0)\nno_corr = [(np.random.randn(500), np.random.randn(500))]\n\np2 = np.random.randn(500)\npos_corr_outlier = [(x, y) for x, y in zip(p2, p2 + np.random.randn(500) * 0.5)]\n\np3 = np.random.rand(50)\npos_corr_outlier[-50:] = [(x, y) for x, y in zip(p3, p3 - 5 * np.random.rand(50) * 1.5)]\n\n\nx1, y1 = zip(*perfect_pos_corr)\nx2, y2 = zip(*perfect_neg_corr)\nx3, y3 = zip(*no_corr)\nx4, y4 = zip(*pos_corr_outlier)";
+                var nbb_cell_id = 52;
+                var nbb_unformatted_code = "# Create different scenarios of correlation\n\nperfect_pos_corr = [(x, x + 2) for x in range(1, 11)]\n\nperfect_neg_corr = [\n    (x, y) for x, y in zip(range(1, 11), sorted(range(1, 11), reverse=True))\n]\nnp.random.seed(0)\nno_corr = [(np.random.randn(500), np.random.randn(500))]\n\np2 = np.random.randn(500)\npos_corr_outlier = [(x, y) for x, y in zip(p2, p2 + np.random.randn(500) * 0.5)]\n\np3 = np.random.normal(0, 0.3, 50)\npos_corr_outlier[-50:] = [(x, y) for x, y in zip(p3, np.random.normal(-4, 0.1, 50))]\n\n\nx1, y1 = zip(*perfect_pos_corr)\nx2, y2 = zip(*perfect_neg_corr)\nx3, y3 = zip(*no_corr)\nx4, y4 = zip(*pos_corr_outlier)";
+                var nbb_formatted_code = "# Create different scenarios of correlation\n\nperfect_pos_corr = [(x, x + 2) for x in range(1, 11)]\n\nperfect_neg_corr = [\n    (x, y) for x, y in zip(range(1, 11), sorted(range(1, 11), reverse=True))\n]\nnp.random.seed(0)\nno_corr = [(np.random.randn(500), np.random.randn(500))]\n\np2 = np.random.randn(500)\npos_corr_outlier = [(x, y) for x, y in zip(p2, p2 + np.random.randn(500) * 0.5)]\n\np3 = np.random.normal(0, 0.3, 50)\npos_corr_outlier[-50:] = [(x, y) for x, y in zip(p3, np.random.normal(-4, 0.1, 50))]\n\n\nx1, y1 = zip(*perfect_pos_corr)\nx2, y2 = zip(*perfect_neg_corr)\nx3, y3 = zip(*no_corr)\nx4, y4 = zip(*pos_corr_outlier)";
                 var nbb_cells = Jupyter.notebook.get_cells();
                 for (var i = 0; i < nbb_cells.length; ++i) {
                     if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
@@ -329,8 +328,8 @@ However, generally a value below <span class="math notranslate nohighlight">\(-0
             </script></div>
 </div>
 <ul class="simple">
-<li><p>The first graph shows a <strong>perfect positive</strong> linear trend with a value of <span class="math notranslate nohighlight">\(1\)</span>, while the second graph shows a <strong>perfect negative</strong> trend, with a value of <span class="math notranslate nohighlight">\(-1\)</span>.</p></li>
-<li><p>We also have the third graph which almost certainly shows a random set of points with no linear trend and thus it has a correlation value of nearly (<span class="math notranslate nohighlight">\(-0.04\)</span>) zero.</p></li>
+<li><p>The first plot shows a <strong>perfect positive</strong> linear trend with a value of <span class="math notranslate nohighlight">\(1\)</span>, while the second plot shows a <strong>perfect negative</strong> trend, with a value of <span class="math notranslate nohighlight">\(-1\)</span>.</p></li>
+<li><p>We also have a third plot which almost certainly shows a random set of points with no linear trend and thus it has a correlation value of nearly (<span class="math notranslate nohighlight">\(-0.04\)</span>) zero.</p></li>
 <li><p>The last plot is rather interesting because, it has positive linear trend but with few points outside of the distribution. We observe that by adding a few of these (outliers) points we have affected the pearson correlation cofficient by a large degree. Although to our eyes we still observe strong linear trend, the coefficient value suggests that there is a <strong>weak linear positive relationship</strong> value of <span class="math notranslate nohighlight">\(0.45\)</span> i.e. value below <span class="math notranslate nohighlight">\(0.5\)</span>.</p></li>
 </ul>
 <div class="cell tag_hide-input docutils container">
@@ -354,7 +353,7 @@ However, generally a value below <span class="math notranslate nohighlight">\(-0
 <img alt="../../_images/correlation_5_0.png" src="../../_images/correlation_5_0.png" />
 <script type="application/javascript">
             setTimeout(function() {
-                var nbb_cell_id = 3;
+                var nbb_cell_id = 53;
                 var nbb_unformatted_code = "fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(nrows=2, ncols=2, figsize=(15, 8))\nax1.scatter(x1, y1, color=\"orange\", edgecolor=\"k\")\nax1.set_title(f\"Perfect Positive Correlation -> {round(pearsonr(x1,y1)[0],2)}\")\nax2.scatter(x2, y2, color=\"orange\", edgecolor=\"k\")\nax2.set_title(f\"Perfect Negative Correlation -> {round(pearsonr(x2,y2)[0],2)}\")\nax3.scatter(x3, y3, alpha=0.5, color=\"orange\", edgecolor=\"k\")\nax3.set_title(f\"Nearly No Correlation -> {round(pearsonr(x3[0],y3[0])[0],2)}\")\nax4.scatter(x4, y4, alpha=0.5, color=\"orange\", edgecolor=\"k\")\nax4.set_title(\n    f\"Positive Correlation with outliers -> {round(pearsonr(x4,y4)[0],2)}\"\n)\nplt.show()";
                 var nbb_formatted_code = "fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(nrows=2, ncols=2, figsize=(15, 8))\nax1.scatter(x1, y1, color=\"orange\", edgecolor=\"k\")\nax1.set_title(f\"Perfect Positive Correlation -> {round(pearsonr(x1,y1)[0],2)}\")\nax2.scatter(x2, y2, color=\"orange\", edgecolor=\"k\")\nax2.set_title(f\"Perfect Negative Correlation -> {round(pearsonr(x2,y2)[0],2)}\")\nax3.scatter(x3, y3, alpha=0.5, color=\"orange\", edgecolor=\"k\")\nax3.set_title(f\"Nearly No Correlation -> {round(pearsonr(x3[0],y3[0])[0],2)}\")\nax4.scatter(x4, y4, alpha=0.5, color=\"orange\", edgecolor=\"k\")\nax4.set_title(f\"Positive Correlation with outliers -> {round(pearsonr(x4,y4)[0],2)}\")\nplt.show()";
                 var nbb_cells = Jupyter.notebook.get_cells();
@@ -422,9 +421,9 @@ Here are few important elements to remember about the coefficient.</p>
 <ul class="simple">
 <li><p>For the first and second plot, both capture linear trend perfectly.</p></li>
 <li><p>For the third plot, once again in the absence of trend the value is near zero and it is as we expected.</p></li>
-<li><p>For the last plot we observe that while the pearson value is 0.45, spearman is around 0.65. In this scenario, I believe the spearman value more as it correctly identifies the trend and doesnt penalise outliers as much as pearson.</p></li>
+<li><p>For the last plot we observe that while the pearson value is <span class="math notranslate nohighlight">\(0.58\)</span>, spearman is around <span class="math notranslate nohighlight">\(0.74\)</span>. In this scenario, spearman value seems more reasonable as it correctly identifies the trend and isn’t sensitive to outliers as much as pearson.</p></li>
 </ul>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats.stats</span> <span class="kn">import</span> <span class="n">spearmanr</span>
 
@@ -464,8 +463,8 @@ Here are few important elements to remember about the coefficient.</p>
 <img alt="../../_images/correlation_9_0.png" src="../../_images/correlation_9_0.png" />
 <script type="application/javascript">
             setTimeout(function() {
-                var nbb_cell_id = 4;
-                var nbb_unformatted_code = "from scipy.stats.stats import spearmanr\n\nfig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(nrows=2, ncols=2, figsize=(15, 8))\nax1.scatter(x1, y1, color=\"orange\", edgecolor=\"k\")\nax1.set_title(\n    f\"Spearman Correlation: {round(spearmanr(x1,y1)[0],2)}\\\n\\nPearson Correlation: {round(pearsonr(x1,y1)[0],2)}\",size=15\n)\nax2.scatter(x2, y2, color=\"orange\", edgecolor=\"k\")\nax2.set_title(\n    f\"Spearman Correlation -> {round(spearmanr(x2,y2)[0],2)}\\\n\\nPearson Correlation -> {round(pearsonr(x2,y2)[0],2)}\",size=15\n)\n\nax3.scatter(x3, y3, alpha=0.5, color=\"orange\", edgecolor=\"k\")\n\nax3.set_title(\n    f\"Spearman Correlation -> {round(spearmanr(x3[0],y3[0])[0],2)}\\\n\\nPearson Correlation -> {round(pearsonr(x3[0],y3[0])[0],2)}\",size=15\n)\nax4.scatter(x4, y4, alpha=0.5, color=\"orange\", edgecolor=\"k\")\nax4.set_title(\n    f\"Spearmen Correlation -> {round(spearmanr(x4,y4)[0],2)}\\\n\\nPearson Correlation -> {round(pearsonr(x4,y4)[0],2)}\",size=15\n)\nplt.tight_layout()\nplt.show()";
+                var nbb_cell_id = 54;
+                var nbb_unformatted_code = "from scipy.stats.stats import spearmanr\n\nfig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(nrows=2, ncols=2, figsize=(15, 8))\nax1.scatter(x1, y1, color=\"orange\", edgecolor=\"k\")\nax1.set_title(\n    f\"Spearman Correlation: {round(spearmanr(x1,y1)[0],2)}\\\n\\nPearson Correlation: {round(pearsonr(x1,y1)[0],2)}\",\n    size=15,\n)\nax2.scatter(x2, y2, color=\"orange\", edgecolor=\"k\")\nax2.set_title(\n    f\"Spearman Correlation -> {round(spearmanr(x2,y2)[0],2)}\\\n\\nPearson Correlation -> {round(pearsonr(x2,y2)[0],2)}\",\n    size=15,\n)\n\nax3.scatter(x3, y3, alpha=0.5, color=\"orange\", edgecolor=\"k\")\n\nax3.set_title(\n    f\"Spearman Correlation -> {round(spearmanr(x3[0],y3[0])[0],2)}\\\n\\nPearson Correlation -> {round(pearsonr(x3[0],y3[0])[0],2)}\",\n    size=15,\n)\nax4.scatter(x4, y4, alpha=0.5, color=\"orange\", edgecolor=\"k\")\nax4.set_title(\n    f\"Spearmen Correlation -> {round(spearmanr(x4,y4)[0],2)}\\\n\\nPearson Correlation -> {round(pearsonr(x4,y4)[0],2)}\",\n    size=15,\n)\nplt.tight_layout()\nplt.show()";
                 var nbb_formatted_code = "from scipy.stats.stats import spearmanr\n\nfig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(nrows=2, ncols=2, figsize=(15, 8))\nax1.scatter(x1, y1, color=\"orange\", edgecolor=\"k\")\nax1.set_title(\n    f\"Spearman Correlation: {round(spearmanr(x1,y1)[0],2)}\\\n\\nPearson Correlation: {round(pearsonr(x1,y1)[0],2)}\",\n    size=15,\n)\nax2.scatter(x2, y2, color=\"orange\", edgecolor=\"k\")\nax2.set_title(\n    f\"Spearman Correlation -> {round(spearmanr(x2,y2)[0],2)}\\\n\\nPearson Correlation -> {round(pearsonr(x2,y2)[0],2)}\",\n    size=15,\n)\n\nax3.scatter(x3, y3, alpha=0.5, color=\"orange\", edgecolor=\"k\")\n\nax3.set_title(\n    f\"Spearman Correlation -> {round(spearmanr(x3[0],y3[0])[0],2)}\\\n\\nPearson Correlation -> {round(pearsonr(x3[0],y3[0])[0],2)}\",\n    size=15,\n)\nax4.scatter(x4, y4, alpha=0.5, color=\"orange\", edgecolor=\"k\")\nax4.set_title(\n    f\"Spearmen Correlation -> {round(spearmanr(x4,y4)[0],2)}\\\n\\nPearson Correlation -> {round(pearsonr(x4,y4)[0],2)}\",\n    size=15,\n)\nplt.tight_layout()\nplt.show()";
                 var nbb_cells = Jupyter.notebook.get_cells();
                 for (var i = 0; i < nbb_cells.length; ++i) {
@@ -520,6 +519,12 @@ Here are few important elements to remember about the coefficient.</p>
             }, 500);
             </script></div>
 </div>
+<ul class="simple">
+<li><p>Starting with the first plot, we see that the outlier values aren’t tight together rather speard across the x-axis and this affects pearson coefficient more than the spearman with values such as <span class="math notranslate nohighlight">\(0.59\)</span> and <span class="math notranslate nohighlight">\(0.74\)</span> respectively.</p></li>
+<li><p>The second plot also has some outliers but they are in the direction of the trend and so the correlation values for both are almost exactly the same.</p></li>
+<li><p>The third plot has points plotted tightly together but we see that the outliers has very little variance and so again both correlation values are almost exactly the same.</p></li>
+<li><p>The last plot here shows monotonicity and non-linearity with almost no variance and this is captured exactly by spearman coefficient.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="p">((</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">),</span> <span class="p">(</span><span class="n">ax3</span><span class="p">,</span> <span class="n">ax4</span><span class="p">))</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
@@ -556,7 +561,7 @@ Here are few important elements to remember about the coefficient.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/correlation_12_0.png" src="../../_images/correlation_12_0.png" />
+<img alt="../../_images/correlation_13_0.png" src="../../_images/correlation_13_0.png" />
 <script type="application/javascript">
             setTimeout(function() {
                 var nbb_cell_id = 6;
@@ -633,7 +638,7 @@ Here are few important elements to remember about the coefficient.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/correlation_14_0.png" src="../../_images/correlation_14_0.png" />
+<img alt="../../_images/correlation_15_0.png" src="../../_images/correlation_15_0.png" />
 <script type="application/javascript">
             setTimeout(function() {
                 var nbb_cell_id = 8;
@@ -663,7 +668,7 @@ Here are few important elements to remember about the coefficient.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/correlation_15_1.png" src="../../_images/correlation_15_1.png" />
+<img alt="../../_images/correlation_16_1.png" src="../../_images/correlation_16_1.png" />
 </div>
 </div>
 </div>
